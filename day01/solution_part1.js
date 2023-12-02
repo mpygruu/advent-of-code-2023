@@ -14,19 +14,11 @@ function findLeftDigit(line) {
     }
 }
 
-function findRightDigit(line) {
-    for (let i=line.length-1; i>=0; i--) {
-        if (isDigit(line[i])) {
-            return line[i];
-        }
-    }
-}
-
 let answerPart1 = 0;
 
 for (let line of data) {
     let leftDigit = findLeftDigit(line);
-    let rightDigit = findRightDigit(line);
+    let rightDigit = findLeftDigit(line.split('').reverse().join(''));
     answerPart1 += parseInt(leftDigit+rightDigit);
 }
 
